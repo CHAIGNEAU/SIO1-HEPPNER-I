@@ -19,4 +19,20 @@ class ConducteurModel extends Object
     public $dateEmbauche;
     public $dateNaissance;
     public $dateSortie;
+
+    public static function getConducteursLibres(){
+
+        $totalConducteurs = 0;
+        $conducteur = self::getAll();
+
+        foreach ($conducteur as $oneConducteurs) {
+            if ($oneConducteurs == TrajetModel::find(['conducteur_id'=> $oneConducteurs->id])){
+
+            }
+            else{
+                $totalConducteurs++;
+            }
+        }
+        return $totalConducteurs;
+    }
 }

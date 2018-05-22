@@ -21,4 +21,5 @@ class TrajetModel extends Object
     public $dateArrivee;
 
 
+
 }
