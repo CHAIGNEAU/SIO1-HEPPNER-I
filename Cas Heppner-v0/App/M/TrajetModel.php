@@ -20,6 +20,10 @@ class TrajetModel extends Object
     public $dateDepart;
     public $dateArrivee;
 
+public static function getConducteurNonLibre(){
 
+    //return self::count (["LOCALTIME BETWEEN", dateDepart AND dateArrivee]);
+   return self::count(["dateArrivee=NULL"]);
+}
 
 }

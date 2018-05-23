@@ -7,7 +7,7 @@ class Config{
     const BDD_HOST      = 'localhost';
     const BDD_NAME      = 'pro_heppner';
     const BDD_USER      = 'pro_heppner';
-    const BDD_PASSWORD  = 'userheppner';
+    const BDD_PASSWORD  = 'pwheppner';
 
     // For Application settings
     const APPLI_NAME    = 'Heppner';

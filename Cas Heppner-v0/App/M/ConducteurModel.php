@@ -20,7 +20,7 @@ class ConducteurModel extends Object
     public $dateNaissance;
     public $dateSortie;
 
-    public static function getConducteursLibres(){
+    public static function getConducteursLibre(){
 
         $totalConducteurs = 0;
         $conducteur = self::getAll();
@@ -35,4 +35,20 @@ class ConducteurModel extends Object
         }
         return $totalConducteurs;
     }
+    public static function getConducteursNonLibre(){
+        $totalConducteurs = 0;
+        $conducteur = self::getAll();
+
+        foreach ($conducteur as $oneConducteurs){
+            if ($oneConducteurs == TrajetModel::find(['conducteur_id'=> $oneConducteurs->id])){
+
+            }
+            else{
+                $totalConducteurs++;
+            }
+        }
+
+        return TrajetModel::getConducteurNonLibre();
+    }
+
 }
