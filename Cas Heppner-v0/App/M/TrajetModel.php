@@ -21,9 +21,115 @@ class TrajetModel extends Object
     public $dateArrivee;
 
 public static function getConducteurNonLibre(){
+    $somme=0;
+    $deplacements=self::getAll();
+    foreach ($deplacements as $deplacements){
+        if(is_null($deplacements->getDateArrivee())){
+            $somme++;
+        }
 
-    //return self::count (["LOCALTIME BETWEEN", dateDepart AND dateArrivee]);
-   return self::count(["dateArrivee=NULL"]);
+    }
+    return $somme;
+
+
 }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDevisId()
+    {
+        return $this->devis_id;
+    }
+
+    /**
+     * @param mixed $devis_id
+     */
+    public function setDevisId($devis_id)
+    {
+        $this->devis_id = $devis_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVehiculeId()
+    {
+        return $this->vehicule_id;
+    }
+
+    /**
+     * @param mixed $vehicule_id
+     */
+    public function setVehiculeId($vehicule_id)
+    {
+        $this->vehicule_id = $vehicule_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConducteurId()
+    {
+        return $this->conducteur_id;
+    }
+
+    /**
+     * @param mixed $conducteur_id
+     */
+    public function setConducteurId($conducteur_id)
+    {
+        $this->conducteur_id = $conducteur_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateDepart()
+    {
+        return $this->dateDepart;
+    }
+
+    /**
+     * @param mixed $dateDepart
+     */
+    public function setDateDepart($dateDepart)
+    {
+        $this->dateDepart = $dateDepart;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateArrivee()
+    {
+        return $this->dateArrivee;
+    }
+
+    /**
+     * @param mixed $dateArrivee
+     */
+    public function setDateArrivee($dateArrivee)
+    {
+        $this->dateArrivee = $dateArrivee;
+    }
+
+
 
 }
