@@ -43,7 +43,7 @@
                 <div class="card-body-icon">
                     <i class="fa fa-fw fa-globe"></i>
                 </div>
-                <div class="mr-5"><?php echo \App\M\DevisModel::getDevisValide(); ?> devis à réaliser</div>
+                <div class="mr-5"><?php echo \App\M\DevisModel::getDevisValide(); ?> devis à réaliser </div>
 
             </div>
         </div>
