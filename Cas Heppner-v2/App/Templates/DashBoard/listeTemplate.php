@@ -60,6 +60,7 @@
             </div>
         </div>
     </div>
+    <!--
     <div class="col-xl-3 col-sm-6 mb-3">
         <div class="card text-white bg-primary o-hidden h-100">
             <div class="card-body">
@@ -110,37 +111,10 @@
             </div>
         </div>
     </div>
-
+    -->
 </div>
 
-<ol class="breadcrumb">
-    <li class="breadcrumb-item">
-        <a href="#">Listes</a>
-    </li>
-</ol>
-<div class="row">
 
-    <div class="col-xl-3 col-sm-6 mb-3">
-        <div class="card text-white bg-primary o-hidden h-100">
-            <div class="card-body">
-                <div class="card-body-icon">
-                    <i class="fa fa-fw fa-balance-scale  "></i>
-                </div>
-                <div class="mr-5">Poids transporté par type de marchandise : <?php echo 'non traité'; ?> </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-3 col-sm-6 mb-3">
-        <div class="card text-white bg-primary o-hidden h-100">
-            <div class="card-body">
-                <div class="card-body-icon">
-                    <i class="fa fa-fw fa-road "></i>
-                </div>
-                <div class="mr-5">Kilométrage moyen de chaque véhicule : <?php echo 'non traité'; ?> </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <ol class="breadcrumb">
     <li class="breadcrumb-item">
@@ -148,7 +122,7 @@
     </li>
 </ol>
 <div class="row">
-
+    <!--
     <div class="col-xl-3 col-sm-6 mb-3">
         <div class="card text-white bg-primary o-hidden h-100">
             <div class="card-body">
@@ -169,6 +143,7 @@
             </div>
         </div>
     </div>
+    -->
 </div>
 <ol class="breadcrumb">
     <li class="breadcrumb-item">
@@ -187,6 +162,7 @@
             </div>
         </div>
     </div>
+    <!--
     <div class="col-xl-3 col-sm-6 mb-3">
         <div class="card text-white bg-primary o-hidden h-100">
             <div class="card-body">
@@ -217,6 +193,7 @@
             </div>
         </div>
     </div>
+    -->
 </div>
 <ol class="breadcrumb">
     <li class="breadcrumb-item">
@@ -231,7 +208,7 @@
                 <div class="card-body-icon">
                     <i class="fa fa-fw fa-check "></i>
                 </div>
-                <div class="mr-5"><?php //echo \App\M\TrajetModel::getConducteurNonLibre(); ?> Conducteurs actuellement en déplacement</div>
+                <div class="mr-5"><?php echo \App\M\TrajetModel::getConducteurNonLibre(); ?> Conducteurs actuellement en déplacement</div>
 
             </div>
         </div>
@@ -243,10 +220,86 @@
                 <div class="card-body-icon">
                     <i class="fa fa-fw fa-times "></i>
                 </div>
-                <div class="mr-5"><?php //echo \App\M\ConducteurModel::count() - \App\M\TrajetModel::getConducteurNonLibre(); ?> Conducteurs actuellement non affectés à un trajet </div>
+                <div class="mr-5"><?php echo \App\M\ConducteurModel::count() - \App\M\TrajetModel::getConducteurNonLibre(); ?> Conducteurs actuellement non affectés à un trajet </div>
 
             </div>
         </div>
     </div>
 
+</div>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Listes</a>
+    </li>
+</ol>
+<div class="row">
+    <!--
+    <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="card text-white bg-primary o-hidden h-100">
+            <div class="card-body">
+                <div class="card-body-icon">
+                    <i class="fa fa-fw fa-balance-scale  "></i>
+                </div>
+                <div class="mr-5">Poids transporté par type de marchandise : <?php echo 'non traité'; ?> </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="card text-white bg-primary o-hidden h-100">
+            <div class="card-body">
+                <div class="card-body-icon">
+                    <i class="fa fa-fw fa-road "></i>
+                </div>
+                <div class="mr-5">Kilométrage moyen de chaque véhicule : <?php echo 'non traité'; ?> </div>
+            </div>
+        </div>
+    </div>
+    -->
+    <div class="col-xl-12 col-sm-6 mb-3">
+        <div class="card-header"><i class="fa fa-table"></i>  Nombre de véhicules par catégorie </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            </div>
+            <?php
+            // Contenu du tableau
+            foreach($this->getNbVehicules() as $unElement){
+                echo '<tr>';
+
+                echo '<td>',$unElement['categorie']->getLibelle(),'</td>';
+                echo '<td>',$unElement['nbVehicules'].'</td>';
+
+                echo '</tr>';
+            }
+            ?>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+<div class="col-xl-12 col-sm-6 mb-3">
+    <div class="card-header"><i class="fa fa-table"></i>  Liste des conducteurs actuellement non affectés à un trajet </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead><th>Nom</th><th>Prenom</th><th>Date d\'embauche</th><th>Date de naissance</th><th>Date de sortie</th></tr></thead><tbody>
+                <?php
+                // Contenu du tableau
+                foreach($this->getConducteursLibre() as $conducteur){
+                    echo '<tr>';
+
+                    echo '<td>',$conducteur->getNom(),'</td>';
+                    echo '<td>',$conducteur->getPrenom(),'</td>';
+                    echo '<td>',$conducteur->getDateEmbauche(),'</td>';
+                    echo '<td>',$conducteur->getDateNaissance(),'</td>';
+                    echo '<td>',$conducteur->getDateSortie(),'</td>';
+
+                    echo '</tr>';
+                }
+                ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 </div>

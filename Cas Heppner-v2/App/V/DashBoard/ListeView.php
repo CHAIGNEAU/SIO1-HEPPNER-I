@@ -5,6 +5,7 @@ namespace App\V\DashBoard;
 use App\M\ConducteurModel;
 use App\M\DepartementModel;
 use App\M\RegionModel;
+use App\M\VehiculeModel;
 
 class  ListeView extends \Core\View {
     /**
@@ -45,5 +46,19 @@ class  ListeView extends \Core\View {
     {
        return ConducteurModel::getAll();
     }
+    public function getNbVehicules(){
+        $tableau = VehiculeModel::getNbVehiculesParCategorie();
+        return $tableau;
+    }
+    public function getCAJ(){
+
+        return \App\M\DevisModel::getCAJour();
+    }
+
+    public function getCAM(){
+
+        return \App\M\DevisModel::getCAMois();
+    }
+
 
 }

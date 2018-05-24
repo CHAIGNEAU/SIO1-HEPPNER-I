@@ -22,6 +22,18 @@ class CategorieModel extends Object
     /**
      * @return mixed
      */
+    public function nbVehicules(){
+        $modeles = ModeleModel::find(['categorie_id'=>$this->id]);
+        $nb = 0;
+        foreach ($modeles as $modele){
+            $nb+=$modele->getNbVehicules();
+        }
+        return $nb;
+    }
+
+    public function getLibelle(){
+        return $this->libelle;
+    }
 
 
 
