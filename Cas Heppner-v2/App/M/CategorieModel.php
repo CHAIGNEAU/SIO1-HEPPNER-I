@@ -16,4 +16,14 @@ class CategorieModel extends Object
     public $id;
     public $libelle;
     public $permis_did;
+
+
+
+    /**
+     * @return mixed
+     */
+
+
+
+
 }

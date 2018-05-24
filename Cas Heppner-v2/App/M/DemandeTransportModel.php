@@ -26,4 +26,11 @@ class DemandeTransportModel extends Object
     public $dateLimite;
 
 
+    public static function getTrajetPlusLong()
+    {
+        $query = self::query('SELECT MAX(distance) FROM demandeTransport',[0]);
+        foreach ($query[0] as $data);
+
+        return $data;
+    }
 }
