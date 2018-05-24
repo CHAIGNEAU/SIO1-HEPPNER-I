@@ -20,6 +20,64 @@ class ConducteurModel extends Object
     public $dateNaissance;
     public $dateSortie;
 
+    /**
+     * @return string
+     */
+    public static function getTable()
+    {
+        return self::$_table;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateEmbauche()
+    {
+        return $this->dateEmbauche;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateNaissance()
+    {
+        return $this->dateNaissance;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateSortie()
+    {
+        return $this->dateSortie;
+    }
+
+
+
     public static function getConducteursLibre(){
 
         $totalConducteurs = 0;
