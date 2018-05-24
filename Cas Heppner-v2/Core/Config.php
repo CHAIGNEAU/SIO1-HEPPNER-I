@@ -7,9 +7,9 @@ class Config{
     const BDD_HOST      = 'localhost';
     const BDD_NAME      = 'pro_heppner';
     const BDD_USER      = 'pro_heppner';
-    const BDD_PASSWORD  = 'gFStNxCHAPMqeD6b';
+    const BDD_PASSWORD  = 'pwheppner';
 
     // For Application settings
     const APPLI_NAME    = 'Heppner';
-    const APPLI_VERSION = 'v0';
+    const APPLI_VERSION = 'v2';
 }

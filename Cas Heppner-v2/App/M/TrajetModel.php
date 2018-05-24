@@ -20,10 +20,6 @@ class TrajetModel extends Object
     public $dateDepart;
     public $dateArrivee;
 
-    /**
-     * @return
-     * ceci calcul le nombre de conducteurs actuellement en déplacement
-     */
 public static function getConducteurNonLibre(){
     $somme=0;
     $deplacements=self::getAll();
